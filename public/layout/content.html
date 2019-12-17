@@ -7,13 +7,13 @@
         <img style="height: 64px" src="img/avatar.jpg" alt="">
         <img style="height: 64px" src="img/Capture.png" alt="">
       </a>
-      <a class="btn btn-primary" href="#">Sign In</a>
+      <a class="btn btn-primary" href="#" onclick="document.getElementById('login').style.display='block'">Sign In</a>
     </div>
   </nav>
-
   <!-- Masthead -->
-  <header class="masthead text-white text-center" style="position: relative; overflow: hidden;">
-    <video autoplay muted loop id="myVideo" style="position: absolute; top:0 ; left: 0;">
+  <header class="masthead text-white text-center" style="position: relative; overflow: hidden; padding: 22em 0;">
+    <video autoplay muted loop id="myVideo" style="position: absolute; top:0 ; left: 0;min-width: 100%;
+    min-height: 100%;">
         <source src="video/123.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
         </video>
@@ -30,7 +30,7 @@
                 <input type="email" class="form-control form-control-lg" placeholder="Enter your email...">
               </div>
               <div class="col-12 col-md-3">
-                <button type="submit" class="btn btn-block btn-lg btn-primary">Sign up!</button>
+                <button class="btn btn-block btn-lg btn-primary" onclick="document.getElementById('id01').style.display='block'">Sign up!</button>
               </div>
             </div>
           </form>
@@ -61,12 +61,12 @@
                                         <p>{{ product.price_old }}đ </p>
                                     </div>
                                 </div>
-                                <ng-template #price><div class="price"><p>{{ product.price_old }}đ</div></ng-template>
+                                <div ng-if="!(product.price_new < product.price_old)" class="price"><p>{{ product.price_old }}đ</div>
                             </div>
                         </a>
                         <div class="service" >
-                            <span (click)="addLike(product.id)"><i  [ngClass]="{'far': product.like_status==0,'fas': product.like_status==1, ' fa-heart':true}"></i></span>
-                            <span (click)="addCart()"><i [ngClass]="{'fas':true, 'fa-cart-plus':true}"></i></span>
+                            <span ng-click="addLike(product.id)"><i  ng-class="{'far': product.like_status==0,'fas': product.like_status==1, ' fa-heart':true}"></i></span>
+                            <span ng-click="addCart()"><i ng-class="{'fas':true, 'fa-cart-plus':true}"></i></span>
                         </div>
                     </div>
           </div>
@@ -236,3 +236,5 @@
       </div>
     </div>
   </footer>
+  <div ng-include="'layout/user/login.html'"></div>
+  <div ng-include="'layout/user/signup.html'"></div>

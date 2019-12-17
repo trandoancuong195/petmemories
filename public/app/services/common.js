@@ -5,6 +5,7 @@ petMemories.service('commonService', function ($http, $compile, $location, $time
     this.LIST_API = {
         // Common
         getproduct: {url: 'api/product/products', method: 'GET'},
+        productlike: {url: 'api/product/productlike/', method: 'PUT'},
     };
 
     this.requestFunction = function (api, params, callback) {
@@ -25,6 +26,13 @@ petMemories.service('commonService', function ($http, $compile, $location, $time
                 var httpConfig = {
                     method: oAPI.method,
                     url: url
+                };
+            }else if (oAPI.method === 'PUT') {
+                var httpConfig = {
+                    method: oAPI.method,
+                    data: $.param(params),
+                    url: url+params,
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 };
             }
             $http(httpConfig).then(function successCallback(response) {
