@@ -4,7 +4,7 @@ petMemories.service('commonService', function ($http, $compile, $location, $time
     this.commonPopup = $('#listMainSubOfSub');
     this.LIST_API = {
         // Common
-        getConfig: {url: 'api/common/getconfig', method: 'POST'},
+        getproduct: {url: 'api/product/products', method: 'GET'},
     };
 
     this.requestFunction = function (api, params, callback) {

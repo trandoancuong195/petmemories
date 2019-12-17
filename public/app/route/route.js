@@ -5,7 +5,7 @@ petMemories.config(['$routeProvider', '$locationProvider',
             controller: 'LogoutCtrl',
             url: baseURL + 'logout'
         }).when('/', {
-            templateUrl: './resources/views/index.blade.php',
+            templateUrl: 'layout/content.html',
             controller: 'HomeCtrl',
             title: 'コールシステム'
         })
@@ -14,4 +14,4 @@ petMemories.config(['$routeProvider', '$locationProvider',
         });
         $locationProvider.html5Mode(true);
     }
-])
+]);
